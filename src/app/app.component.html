@@ -1,0 +1,13 @@
+<h1>
+  {{title}}
+</h1>
+
+<button type='button' (click)='refresh()'>Refresh</button>
+
+<ul>
+  <li *ngFor='let user of usersToFollow$ | async'>
+    <app-user [user]='user' (closedUser)='close($event)'></app-user>
+  </li>
+</ul>
+
+<p *ngIf='closedUser !== undefined'>User {{closedUser}} was closed</p>
